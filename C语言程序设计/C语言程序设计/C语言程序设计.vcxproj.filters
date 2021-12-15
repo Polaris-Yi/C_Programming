@@ -18,5 +18,8 @@
     <ClCompile Include="chapter06.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="chapter12.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
