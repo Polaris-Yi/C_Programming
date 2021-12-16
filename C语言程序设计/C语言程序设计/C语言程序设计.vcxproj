@@ -140,6 +140,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="chapter06.c" />
+    <ClCompile Include="chapter09.c" />
+    <ClCompile Include="chapter11.c" />
     <ClCompile Include="chapter12.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

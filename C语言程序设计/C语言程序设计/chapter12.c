@@ -6,7 +6,7 @@
 
 #define MAX_SIZE 256
 
-int main(int argc, char* argv[])
+int main1216(int argc, char* argv[])
 {
 	//(1)编写一程序，其功能是显示指定的文本文件，在显示文件内容时同时加上行号
 	/*FILE* fp;
