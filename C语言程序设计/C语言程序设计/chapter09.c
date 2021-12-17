@@ -24,11 +24,19 @@ void myStrcat2(char dstStr[], char srcStr[]);
 bool isPalindrome(char* string);
 
 /**
- * (4)编写一取某字符串子串的函数char* substr（char*s，int startloc，int len）
+ * (4)编写一取某字符串子串的函数char* substr(char* s，int startloc，int len)
  *    其中s为字符串，startloc为起始位置（0表示第一个字符的位置），len为子串的长度
  */
 char* subStr(char* srcStr, int startLoc, int length);
 
+//(5)编写一函数strlshif(char* s，int n)，其功能是把字符串s中的所有字符左移n个位置，字符串中的前n个字符移到最后
+void strLeftShift(char* s, int n);
+
+//(6)编写一个函数delDigit，它的功能是：删除字符串中的数字字符。例如输入字符串48CTYP9E6，则输出CTYPE
+void delDigit(char* srcStr);
+
+//(7)编写一个函数totalSubstrNum(char* str，char* substr)，它的功能是：统计子字符串substr 在字符串str中出现的次数
+int totalSubstrNum(char* str, char* subStr);
 
 int main(int argc, char* argv[])
 {
@@ -76,9 +84,21 @@ int main(int argc, char* argv[])
 	printf("%s回文字符\n", result == true ? "是" : "非");*/
 
 	//(4)编写一取某字符串子串的函数char* substr（char*s，int startloc，int len，其中s为字符串，startloc为起始位置（0表示第一个字符的位置），len为子串的长度
-	char str[MAX_SIZE] = "Royal Never Give Up";
+	/*char str[MAX_SIZE] = "Royal Never Give Up";
 	char* subString = subStr(str, 6, 5);
-	printf("%s的子串为%s\n", str, subString);
+	printf("%s的子串为%s\n", str, subString);*/
+
+	//(5)编写一函数strlshif(char* s，int n)，其功能是把字符串s中的所有字符左移n个位置，字符串中的前n个字符移到最后
+	/*char str[MAX_SIZE] = "Royal Never Give Up";
+	printf("%s\n", str);
+	strLeftShift(str, 5);
+	printf("左移5位得%s\n", str);*/
+
+	//(6)编写一个函数delDigit，它的功能是：删除字符串中的数字字符。例如输入字符串48CTYP9E6，则输出CTYPE
+	char str[MAX_SIZE] = "Royal Never 6666666 Give 66666666 Up";
+	printf("%s\n", str);
+	delDigit(str);
+	printf("删除数字字符得%s\n", str);
 
 	return 0;
 }
@@ -166,4 +186,53 @@ char* subStr(char* srcStr, int startLoc, int length)
 	}
 	subString[i] = '\0';
 	return subString;
+}
+
+//(5)编写一函数strlshif(char* s，int n)，其功能是把字符串s中的所有字符左移n个位置，字符串中的前n个字符移到最后
+void strLeftShift(char* s, int n)
+{
+	char first;
+	int length = strlen(s);
+	for (int i = 0; i < n; i++)
+	{
+		first = s[0];//将源字符串的第一个字符暂存
+		strncpy(s, s + 1, length - 1);//从第二个字符开始的length-1个字符左移
+		s[length - 1] = first;//将原首字符置于字符串尾部
+	}
+}
+
+//(6)编写一个函数delDigit，它的功能是：删除字符串中的数字字符。例如输入字符串48CTYP9E6，则输出CTYPE
+void delDigit(char* srcStr)
+{
+	int length = strlen(srcStr);
+
+	for (char* pStr = srcStr; *pStr != '\0'; pStr++)
+	{
+		while (*pStr >= '0' && *pStr <= '9')
+		{
+			strcpy(pStr, pStr + 1);
+		}
+	}
+}
+
+//(7)编写一个函数totalSubstrNum(char* str，char* substr)，它的功能是：统计子字符串subStr在字符串str中出现的次数
+int totalSubstrNum(char* str, char* subStr)
+{
+	int i = 0;
+	int count = 0;
+	int strLen = strlen(str);
+	int subStrLen = strlen(subStr);
+	while (i <= strLen - subStrLen)
+	{
+		if (strncmp(str + i, subStr, subStrLen) == 0)
+		{
+			count++;
+			i = i + subStrLen;
+		}
+		else
+		{
+			i++;
+		}
+	}
+	return count;
 }
