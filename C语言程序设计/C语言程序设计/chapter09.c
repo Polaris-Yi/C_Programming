@@ -5,8 +5,10 @@
 #include <string.h>
 #include <math.h>
 #include <time.h>
+#include <stdbool.h>
 
 #define LENGTH 10
+#define MAX_SIZE 256
 
 void traverseArray(int arr[], int n);
 
@@ -17,6 +19,9 @@ void swap(int* x, int* y);
 void myStrcat(char* dstStr, char* srcStr);
 
 void myStrcat2(char dstStr[], char srcStr[]);
+
+//(3)编程判断输入的一串字符是否为"回文"。所谓"回文"是指顺读和倒读都一样的字符串。如"level"、"ABCCBA"都是回文
+bool isPalindrome(char* string);
 
 int main(int argc, char* argv[])
 {
@@ -54,6 +59,13 @@ int main(int argc, char* argv[])
 	myStrcat2(s, t);
 
 	printf("%s\n", s);
+
+	printf("请输入一段字符串判断是否为回文字符:\n");
+	char buffer[MAX_SIZE];
+	memset(buffer, 0, sizeof(char) * MAX_SIZE);
+	scanf("%s", buffer);
+	int result = isPalindrome(buffer);
+	printf("%s回文字符\n", result == true ? "是" : "非");
 
 	return 0;
 }
@@ -105,4 +117,19 @@ void myStrcat2(char dstStr[], char srcStr[])
 		dstStr[i++] = srcStr[j++];
 	}
 	dstStr[i] = '\0';
+}
+
+//(3)编程判断输入的一串字符是否为"回文"。所谓"回文"是指顺读和倒读都一样的字符串。如"level"、"ABCCBA"都是回文
+bool isPalindrome(char* string)
+{
+	char* pStart, * pEnd;
+	int length = strlen(string);;
+	pStart = string;//字符串首部
+	pEnd = string + length - 1;//字符串尾部
+	while (*pStart == *pEnd && pStart <= pEnd)
+	{
+		pStart++;
+		pEnd--;
+	}
+	return pStart < pEnd ? false : true;
 }
