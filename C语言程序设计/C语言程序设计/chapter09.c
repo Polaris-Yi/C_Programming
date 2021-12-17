@@ -35,7 +35,7 @@ void strLeftShift(char* s, int n);
 //(6)编写一个函数delDigit，它的功能是：删除字符串中的数字字符。例如输入字符串48CTYP9E6，则输出CTYPE
 void delDigit(char* srcStr);
 
-//(7)编写一个函数totalSubstrNum(char* str，char* substr)，它的功能是：统计子字符串substr 在字符串str中出现的次数
+//(7)编写一个函数totalSubstrNum(char* str，char* substr)，它的功能是:统计子字符串substr在字符串str中出现的次数
 int totalSubstrNum(char* str, char* subStr);
 
 int main(int argc, char* argv[])
@@ -95,10 +95,16 @@ int main(int argc, char* argv[])
 	printf("左移5位得%s\n", str);*/
 
 	//(6)编写一个函数delDigit，它的功能是：删除字符串中的数字字符。例如输入字符串48CTYP9E6，则输出CTYPE
-	char str[MAX_SIZE] = "Royal Never 6666666 Give 66666666 Up";
+	/*char str[MAX_SIZE] = "Royal Never 6666666 Give 66666666 Up";
 	printf("%s\n", str);
 	delDigit(str);
-	printf("删除数字字符得%s\n", str);
+	printf("删除数字字符得%s\n", str);*/
+
+	//(7)编写一个函数totalSubstrNum(char* str，char* substr)，它的功能是：统计子字符串substr在字符串str中出现的次数
+	char str[MAX_SIZE] = "Royal Never Give Up";
+	char subString[MAX_SIZE] = "ve";
+	int total = totalSubstrNum(str, subString);
+	printf("%s在%s中出现的次数:%d次\n", subString, str, total);
 
 	return 0;
 }
