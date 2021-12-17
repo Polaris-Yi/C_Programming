@@ -1,2 +1,7 @@
-﻿  chapter09.c
+﻿  chapter06.c
+  chapter09.c
+F:\Git Repository\C_Programming\C语言程序设计\C语言程序设计\chapter09.c(157,34): warning C4018: “>=”: 有符号/无符号不匹配
+  chapter11.c
+  chapter12.c
+  正在生成代码...
   C语言程序设计.vcxproj -> F:\Git Repository\C_Programming\C语言程序设计\Debug\C语言程序设计.exe
